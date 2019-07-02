@@ -1,0 +1,56 @@
+import red from "@material-ui/core/colors/red";
+import { createMuiTheme } from "@material-ui/core/styles";
+
+// A custom theme for this app
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#556cd6"
+    },
+    secondary: {
+      main: "#19857b"
+    },
+    error: {
+      main: red.A400
+    },
+    background: {
+      default: "#fff"
+    }
+  },
+  typography: {
+    fontSize: 12
+  },
+  spacing: 2,
+  props: {
+    MuiTextField: {
+      fullWidth: true
+    }
+  },
+  overrides: {
+    MuiCardContent: {
+      root: {
+        padding: 12,
+        "&:last-child": {
+          paddingBottom: 16
+        }
+      }
+    },
+    MuiTab: {
+      root: {
+        minHeight: 0,
+        minWidth: 0,
+        "@media (min-width:960px)": {
+          minHeight: 0,
+          minWidth: 0
+        }
+      }
+    },
+    MuiTabs: {
+      root: {
+        minHeight: 0
+      }
+    }
+  }
+});
+
+export default theme;
