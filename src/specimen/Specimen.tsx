@@ -65,8 +65,18 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+function useFormInput(initialValue = "") {
+  const [value, setValue] = useState(initialValue);
+
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setValue(event.target.value);
+  }
+  return { value, onChange: handleChange };
+}
+
 export default function Specimen() {
   const classes = useStyles();
+
   const [tabValue, setTabValue] = useState(0);
 
   return (
@@ -85,58 +95,78 @@ export default function Specimen() {
               <Typography>Patient Information</Typography>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={3}>
-                  <TextField label="Case" value={"MH1238474589634"} />
+                  <TextField
+                    label="Case"
+                    {...useFormInput("MH1238474589634")}
+                  />
                 </Grid>
                 <Grid item xs={12} sm={3}>
-                  <TextField label="HKID" value={"A123456(3)"} />
+                  <TextField label="HKID" {...useFormInput("A123456(3)")} />
                 </Grid>
                 <Grid item xs={12} sm={4}>
-                  <TextField label="Name" value={"DAI MAN CHAN"} />
+                  <TextField label="Name" {...useFormInput("DAI MAN CHAN")} />
                 </Grid>
                 <Grid item xs={12} sm={2}>
-                  <TextField label="Age" value={"42"} />
+                  <TextField label="Age" {...useFormInput("42")} />
                 </Grid>
                 <Grid item xs={12} sm={3}>
-                  <TextField label="Dob" value={"01/01/1977"} />
+                  <TextField label="Dob" {...useFormInput("01/01/1977")} />
                 </Grid>
                 <Grid item xs={12} sm={1}>
-                  <TextField label="Sex" value={"M"} />
+                  <TextField label="Sex" {...useFormInput("M")} />
                 </Grid>
                 <Grid item xs={12} sm={1}>
-                  <TextField label="Ward" value={"4B"} />
+                  <TextField label="Ward" {...useFormInput("4B")} />
                 </Grid>
                 <Grid item xs={12} sm={1}>
-                  <TextField label="Bed" value={"34"} />
+                  <TextField label="Bed" {...useFormInput("34")} />
                 </Grid>
                 <Grid item xs={12} sm={2}>
-                  <TextField label="Speciality" value={"CNT"} />
+                  <TextField label="Speciality" {...useFormInput("CNT")} />
                 </Grid>
                 <Grid item xs={12} sm={4}>
-                  <TextField label="MRN" value={"N/A"} />
+                  <TextField label="MRN" {...useFormInput("N/A")} />
                 </Grid>
               </Grid>
             </CardContent>
           </Card>
-          <Box padding={2} mb={1}>
-            <Grid container alignItems="center" spacing={2}>
-              <Grid item sm={2}>
-                <FormLabel>Specimen No./Lab#</FormLabel>
+          <Box m={4}>
+            <Grid container spacing={4}>
+              <Grid
+                item
+                sm
+                container
+                spacing={2}
+                justify="flex-start"
+                alignItems="center"
+              >
+                <Grid item>
+                  <FormLabel>Specimen No. / Lab #</FormLabel>
+                </Grid>
+                <Grid item>
+                  <TextField
+                    inputProps={{ "aria-label": "bare" }}
+                    {...useFormInput("XXXXXX")}
+                  />
+                </Grid>
               </Grid>
-              <Grid item sm={3}>
-                <TextField
-                  id="standard-bare"
-                  inputProps={{ "aria-label": "bare" }}
-                />
-              </Grid>
-              <Grid item sm={3} />
-              <Grid item sm={1}>
-                <FormLabel>Pay Code</FormLabel>
-              </Grid>
-              <Grid item sm={1}>
-                <TextField
-                  id="standard-bare"
-                  inputProps={{ "aria-label": "bare" }}
-                />
+              <Grid
+                item
+                sm
+                container
+                spacing={2}
+                justify="flex-end"
+                alignItems="center"
+              >
+                <Grid item>
+                  <FormLabel>Pay Code</FormLabel>
+                </Grid>
+                <Grid item sm={2}>
+                  <TextField
+                    inputProps={{ "aria-label": "bare" }}
+                    {...useFormInput("X")}
+                  />
+                </Grid>
               </Grid>
             </Grid>
           </Box>
@@ -153,16 +183,19 @@ export default function Specimen() {
               <Box padding={2}>
                 <Grid container spacing={2}>
                   <Grid item xs={12} sm={3}>
-                    <TextField label="Specimen" value={"XXXXXX"} />
+                    <TextField label="Specimen" {...useFormInput("XXXXXX")} />
                   </Grid>
                   <Grid item xs={12} sm={3}>
-                    <TextField label="Type Detail" value={"Testing"} />
+                    <TextField
+                      label="Type Detail"
+                      {...useFormInput("Testing")}
+                    />
                   </Grid>
                   <Grid item xs={12} sm={1}>
-                    <TextField label="Status" value={"P"} />
+                    <TextField label="Status" {...useFormInput("P")} />
                   </Grid>
                   <Grid item xs={12} sm={1}>
-                    <TextField label="Marker" value={"TX"} />
+                    <TextField label="Marker" {...useFormInput("TX")} />
                   </Grid>
                 </Grid>
               </Box>

@@ -29,10 +29,15 @@ const theme = createMuiTheme({
   overrides: {
     MuiCardContent: {
       root: {
-        padding: 12,
+        padding: 10,
         "&:last-child": {
-          paddingBottom: 16
+          paddingBottom: 14
         }
+      }
+    },
+    MuiTabs: {
+      root: {
+        minHeight: 0
       }
     },
     MuiTab: {
@@ -43,11 +48,6 @@ const theme = createMuiTheme({
           minHeight: 0,
           minWidth: 0
         }
-      }
-    },
-    MuiTabs: {
-      root: {
-        minHeight: 0
       }
     }
   }
