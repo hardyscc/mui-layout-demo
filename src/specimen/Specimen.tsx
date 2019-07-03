@@ -181,23 +181,22 @@ export default function Specimen() {
                 <Tab label="Order Info" />
               </Tabs>
               <Box padding={2}>
-                <Grid container spacing={2}>
-                  <Grid item xs={12} sm={3}>
-                    <TextField label="Specimen" {...useFormInput("XXXXXX")} />
+                {tabValue === 0 && (
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} sm={3}>
+                      <TextField label="Specimen" value={"XXXXXX"} />
+                    </Grid>
+                    <Grid item xs={12} sm={3}>
+                      <TextField label="Type Detail" value={"Testing"} />
+                    </Grid>
+                    <Grid item xs={12} sm={1}>
+                      <TextField label="Status" value={"P"} />
+                    </Grid>
+                    <Grid item xs={12} sm={1}>
+                      <TextField label="Marker" value={"TX"} />
+                    </Grid>
                   </Grid>
-                  <Grid item xs={12} sm={3}>
-                    <TextField
-                      label="Type Detail"
-                      {...useFormInput("Testing")}
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={1}>
-                    <TextField label="Status" {...useFormInput("P")} />
-                  </Grid>
-                  <Grid item xs={12} sm={1}>
-                    <TextField label="Marker" {...useFormInput("TX")} />
-                  </Grid>
-                </Grid>
+                )}
               </Box>
             </CardContent>
           </Card>
