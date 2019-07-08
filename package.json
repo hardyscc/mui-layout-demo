@@ -6,7 +6,7 @@
     "@material-ui/core": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "formik": "^1.5.7",
+    "formik": "^2.0.1-rc.8",
     "formik-material-ui": "^0.0.19",
     "react": "latest",
     "react-dom": "latest",
