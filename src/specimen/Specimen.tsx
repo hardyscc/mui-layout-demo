@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     width: "auto",
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
-    [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
+    [theme.breakpoints.up(800 + theme.spacing(2) * 2)]: {
       width: 800,
       marginLeft: "auto",
       marginRight: "auto"
@@ -30,11 +30,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(3),
     padding: theme.spacing(2),
-    [theme.breakpoints.up(800 + theme.spacing(3) * 2)]: {
-      marginTop: theme.spacing(6),
-      marginBottom: theme.spacing(6),
-      padding: theme.spacing(3)
-    }
+    minWidth: 800
   }
 }));
 
@@ -72,38 +68,38 @@ export default function Specimen() {
             <CardContent>
               <Typography>Patient Information</Typography>
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={3}>
+                <Grid item xs={3}>
                   <Field name="case" label="Case" component={TextField} />
                 </Grid>
-                <Grid item xs={12} sm={3}>
+                <Grid item xs={3}>
                   <Field name="hkid" label="HKID" component={TextField} />
                 </Grid>
-                <Grid item xs={12} sm={4}>
+                <Grid item xs={4}>
                   <Field name="name" label="Name" component={TextField} />
                 </Grid>
-                <Grid item xs={12} sm={2}>
+                <Grid item xs={2}>
                   <Field name="age" label="Age" component={TextField} />
                 </Grid>
-                <Grid item xs={12} sm={3}>
+                <Grid item xs={3}>
                   <Field name="dob" label="Dob" component={TextField} />
                 </Grid>
-                <Grid item xs={12} sm={1}>
+                <Grid item xs={1}>
                   <Field name="sex" label="Sex" component={TextField} />
                 </Grid>
-                <Grid item xs={12} sm={1}>
+                <Grid item xs={1}>
                   <Field name="ward" label="Ward" component={TextField} />
                 </Grid>
-                <Grid item xs={12} sm={1}>
+                <Grid item xs={1}>
                   <Field name="bed" label="Bed" component={TextField} />
                 </Grid>
-                <Grid item xs={12} sm={2}>
+                <Grid item xs={2}>
                   <Field
                     name="speciality"
                     label="Speciality"
                     component={TextField}
                   />
                 </Grid>
-                <Grid item xs={12} sm={4}>
+                <Grid item xs={4}>
                   <Field name="mrn" label="MRN" component={TextField} />
                 </Grid>
               </Grid>
@@ -113,7 +109,7 @@ export default function Specimen() {
             <Grid container spacing={4}>
               <Grid
                 item
-                sm
+                xs
                 container
                 spacing={2}
                 justify="flex-start"
@@ -132,7 +128,7 @@ export default function Specimen() {
               </Grid>
               <Grid
                 item
-                sm
+                xs
                 container
                 spacing={2}
                 justify="flex-end"
@@ -141,7 +137,7 @@ export default function Specimen() {
                 <Grid item>
                   <FormLabel>Pay Code</FormLabel>
                 </Grid>
-                <Grid item sm={2}>
+                <Grid item xs={2}>
                   <Field
                     name="payCode"
                     component={TextField}
@@ -164,35 +160,35 @@ export default function Specimen() {
               <Box padding={2}>
                 {tabValue === 0 && (
                   <Grid container spacing={2}>
-                    <Grid item xs={12} sm={3}>
+                    <Grid item xs={3}>
                       <Field
                         name="specimen"
                         label="Specimen"
                         component={TextField}
                       />
                     </Grid>
-                    <Grid item xs={12} sm={3}>
+                    <Grid item xs={3}>
                       <Field
                         name="typeDetail"
                         label="Type Detail"
                         component={TextField}
                       />
                     </Grid>
-                    <Grid item xs={12} sm={1}>
+                    <Grid item xs={1}>
                       <Field
                         name="status"
                         label="Status"
                         component={TextField}
                       />
                     </Grid>
-                    <Grid item xs={12} sm={1}>
+                    <Grid item xs={1}>
                       <Field
                         name="marker"
                         label="Marker"
                         component={TextField}
                       />
                     </Grid>
-                    <Grid item xs={12} sm={12}>
+                    <Grid item xs={12}>
                       <Field
                         name="site"
                         label="Site"
@@ -202,7 +198,7 @@ export default function Specimen() {
                         component={TextField}
                       />
                     </Grid>
-                    <Grid item xs={12} sm={12}>
+                    <Grid item xs={12}>
                       <Field
                         name="preparation"
                         label="Preparation"
@@ -215,7 +211,11 @@ export default function Specimen() {
                   </Grid>
                 )}
               </Box>
-              <Button type="submit">Submit</Button>
+              <Box mt={2} p={2}>
+                <Button size="small" variant="contained" type="submit">
+                  Submit
+                </Button>
+              </Box>
             </CardContent>
           </Card>
         </Paper>
