@@ -1,18 +1,7 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  FormLabel,
-  Grid,
-  Paper,
-  Tab,
-  Tabs
-} from "@material-ui/core";
+import { Box, Button, Card, CardContent, FormLabel, Grid, Paper, Tab, Tabs, TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { Field, FormikProvider, useFormik } from "formik";
-import { TextField } from "formik-material-ui";
+import { Field, Form, FormikProvider, useFormik } from "formik";
 import React, { useState } from "react";
 
 const useStyles = makeStyles(theme => ({
@@ -62,45 +51,41 @@ export default function Specimen() {
 
   return (
     <FormikProvider value={formik}>
-      <form className={classes.layout}>
+      <Form className={classes.layout}>
         <Paper className={classes.paper}>
           <Card>
             <CardContent>
               <Typography>Patient Information</Typography>
               <Grid container spacing={2}>
                 <Grid item xs={3}>
-                  <Field name="case" label="Case" component={TextField} />
+                  <Field name="case" label="Case" as={TextField} />
                 </Grid>
                 <Grid item xs={3}>
-                  <Field name="hkid" label="HKID" component={TextField} />
+                  <Field name="hkid" label="HKID" as={TextField} />
                 </Grid>
                 <Grid item xs={4}>
-                  <Field name="name" label="Name" component={TextField} />
+                  <Field name="name" label="Name" as={TextField} />
                 </Grid>
                 <Grid item xs={2}>
-                  <Field name="age" label="Age" component={TextField} />
+                  <Field name="age" label="Age" as={TextField} />
                 </Grid>
                 <Grid item xs={3}>
-                  <Field name="dob" label="Dob" component={TextField} />
+                  <Field name="dob" label="Dob" as={TextField} />
                 </Grid>
                 <Grid item xs={1}>
-                  <Field name="sex" label="Sex" component={TextField} />
+                  <Field name="sex" label="Sex" as={TextField} />
                 </Grid>
                 <Grid item xs={1}>
-                  <Field name="ward" label="Ward" component={TextField} />
+                  <Field name="ward" label="Ward" as={TextField} />
                 </Grid>
                 <Grid item xs={1}>
-                  <Field name="bed" label="Bed" component={TextField} />
+                  <Field name="bed" label="Bed" as={TextField} />
                 </Grid>
                 <Grid item xs={2}>
-                  <Field
-                    name="speciality"
-                    label="Speciality"
-                    component={TextField}
-                  />
+                  <Field name="speciality" label="Speciality" as={TextField} />
                 </Grid>
                 <Grid item xs={4}>
-                  <Field name="mrn" label="MRN" component={TextField} />
+                  <Field name="mrn" label="MRN" as={TextField} />
                 </Grid>
               </Grid>
             </CardContent>
@@ -121,7 +106,7 @@ export default function Specimen() {
                 <Grid item>
                   <Field
                     name="specimenNo"
-                    component={TextField}
+                    as={TextField}
                     inputProps={{ "aria-label": "bare" }}
                   />
                 </Grid>
@@ -140,7 +125,7 @@ export default function Specimen() {
                 <Grid item xs={2}>
                   <Field
                     name="payCode"
-                    component={TextField}
+                    as={TextField}
                     inputProps={{ "aria-label": "bare" }}
                   />
                 </Grid>
@@ -161,32 +146,20 @@ export default function Specimen() {
                 {tabValue === 0 && (
                   <Grid container spacing={2}>
                     <Grid item xs={3}>
-                      <Field
-                        name="specimen"
-                        label="Specimen"
-                        component={TextField}
-                      />
+                      <Field name="specimen" label="Specimen" as={TextField} />
                     </Grid>
                     <Grid item xs={3}>
                       <Field
                         name="typeDetail"
                         label="Type Detail"
-                        component={TextField}
+                        as={TextField}
                       />
                     </Grid>
                     <Grid item xs={1}>
-                      <Field
-                        name="status"
-                        label="Status"
-                        component={TextField}
-                      />
+                      <Field name="status" label="Status" as={TextField} />
                     </Grid>
                     <Grid item xs={1}>
-                      <Field
-                        name="marker"
-                        label="Marker"
-                        component={TextField}
-                      />
+                      <Field name="marker" label="Marker" as={TextField} />
                     </Grid>
                     <Grid item xs={12}>
                       <Field
@@ -195,7 +168,7 @@ export default function Specimen() {
                         multiline
                         rows="2"
                         rowsMax="4"
-                        component={TextField}
+                        as={TextField}
                       />
                     </Grid>
                     <Grid item xs={12}>
@@ -205,7 +178,7 @@ export default function Specimen() {
                         multiline
                         rows="2"
                         rowsMax="4"
-                        component={TextField}
+                        as={TextField}
                       />
                     </Grid>
                   </Grid>
@@ -219,7 +192,7 @@ export default function Specimen() {
             </CardContent>
           </Card>
         </Paper>
-      </form>
+      </Form>
     </FormikProvider>
   );
 }
